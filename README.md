@@ -8,6 +8,7 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 ## Instructions
 - [Getting Started](https://github.com/donJoomla/jforms/wiki/Getting-Started)
+- [Sending Emails](https://github.com/donJoomla/jforms/wiki/Sending-Emails)
 - [Creating a custom form](https://github.com/donJoomla/jforms/wiki/Creating-a-custom-form)
 
 
