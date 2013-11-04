@@ -7,7 +7,7 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 
 
-[View Instructions](https://github.com/donJoomla/jforms/wiki/Instructions)
+[View Instructions](https://github.com/donJoomla/jforms/wiki/Getting-Started)
 
 
 ## Available Plugins
