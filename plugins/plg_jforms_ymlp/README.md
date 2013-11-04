@@ -23,6 +23,12 @@ Map your form fields to the fields in YMLP. Use the field names you specified yo
 Notice how the name is in squiggly brackets, this tells the plugin to use the data from the form. 
 To pass a static value to, for example, track where they signed up from, just enter standard text eg. `Website Contact Form`.
 
+## Requirements
+
+- PHP 5
+- Joomla 2.5+
+- jForms Plugin Framework (plg_system_jforms)
+
 ## Roadmap
 
 - Allow selecting mailing list based on form field (list, radio or checkboxes)
