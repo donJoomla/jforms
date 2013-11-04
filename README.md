@@ -51,5 +51,6 @@ Execute custom JavaScript functions. To use your own functions upload them to `/
 
 ## Roadmap
 
-- Form creator
+- Drag & drop XML form creator
+- Full documentation
 - Developer wiki
