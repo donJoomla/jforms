@@ -48,7 +48,6 @@ Select this option to submit the form without reloading the page.
 Execute custom JavaScript functions. To use your own functions upload them to `/modules/mod_jforms/functions/`.
 
 
-
 ## Requirements
 
 - PHP 5
@@ -58,6 +57,7 @@ Execute custom JavaScript functions. To use your own functions upload them to `/
 
 Planned features in no perticular order.
 
+- Language file for multilingual support
 - Drag & drop XML form creator
 - Full documentation
 - Developer wiki
