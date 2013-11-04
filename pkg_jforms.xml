@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="2.5" method="upgrade">
+	<name>jForms Module</name>
+	<author>Adam Bouqdib</author>
+	<creationDate>May 2013</creationDate>
+	<authorEmail>adam@abemedia.co.uk</authorEmail>
+	<authorUrl>www.abemedia.co.uk</authorUrl>
+	<version>1.6.1</version>
+	<description>A slick AJAX contact form using jForms.</description>
+    <files>
+        <file type="module" id="mod_jforms" client="site">mod_jforms</file>
+        <file type="plugin" id="jforms" group="system">plugins/plg_system_jforms</file>
+        <file type="plugin" id="googlespreadsheet" group="jforms">plugins/plg_jforms_googlespreadsheet</file>
+        <file type="plugin" id="ymlp" group="jforms">plugins/plg_jforms_ymlp</file>
+    </files>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update"><![CDATA[http://donjoomla.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=1&dummy=extension.xml]]></server>
+    </updateservers>
+</extension>
