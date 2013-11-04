@@ -21,7 +21,25 @@ Enter a message which will be displayed after successful form submission.
 **Submit button text**  
 Enter the text you would like to appear on the submit button.
 
+### Email Settings
+
+**Send email**  
+Choose whether to send the form data via email. If you select no all following settings will be ignored.
+
+**Email destination**  
+Enter a valid email address where the form data will be sent to. 
+To use a user entered email address enter the field names you specified your form XML for example `{email}`.
+
+**Email subject**  
+Enter a subject for the email that will be sent.
+To use a user entered subject enter the field names you specified your form XML for example `{subject}`.
+
+**Email text**  
+Create the template of the email. 
+Use placeholders for the form data using the field names you specified your form XML for example `{email}`.
+To display all the form data in a list use `{fields}`.
+
 
 ## Roadmap
 
-- Allow selecting mailing list based on form field (list, radio or checkboxes)
+- Form creator
