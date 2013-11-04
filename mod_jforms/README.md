@@ -39,7 +39,17 @@ Create the template of the email.
 Use placeholders for the form data using the field names you specified your form XML for example `{email}`.
 To display all the form data in a list use `{fields}`.
 
+### AJAX Settings
+
+**Use Ajax to send form**  
+Select this option to submit the form without reloading the page.
+
+**Custom Functions**  
+Execute custom JavaScript functions. To use your own functions upload them to `/modules/mod_jforms/functions/`.
+
+
 
 ## Roadmap
 
 - Form creator
+- Developer wiki
