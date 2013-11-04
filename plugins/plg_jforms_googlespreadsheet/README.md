@@ -31,3 +31,4 @@ Select which spreasheet to save to form data to.
 ## Roadmap
 
 - Use OAuth for connecting to Google account
+- Display error messages using Joomla API
