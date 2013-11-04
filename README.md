@@ -30,3 +30,8 @@ Subscribe user to a YMLP mailing list.
 - Mailchimp plugin
 - Sign-up plugin
 - Developer wiki
+
+## Author
+
+**Adam Bouqdib**
+- @abemedia
