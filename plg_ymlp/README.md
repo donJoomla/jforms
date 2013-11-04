@@ -25,4 +25,4 @@ To pass a static value to, for example, track where they signed up from, just en
 
 ## Roadmap
 
-- Select mailing list based on form field (list or checkboxes)
+- Allow selecting mailing list based on form field (list, radio or checkboxes)
