@@ -1,6 +1,5 @@
-<?php
-defined('_JEXEC') or die('Restricted access');
-?>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+<button data-toggle="modal" href="#formModal<?php echo $module->id; ?>" class="btn btn-default"><?php echo $module->title; ?></button>
 <div class="modal fade hide" id="formModal<?php echo $module->id; ?>">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
