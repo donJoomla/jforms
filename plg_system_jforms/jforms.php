@@ -37,10 +37,7 @@ class plgSystemJForms extends JPlugin
 		}
 		// Extra parameters for mod_jforms edit
 		if ($form->getName() == 'com_modules.module' && $data->module == 'mod_jforms')
-		{
-			print_r($form->getGroup('params'));
-			$form->removeGroup('advanced');
-			
+		{			
 			$plugins = JFolder::folders(JPATH_ROOT.'/plugins/jforms');
 			
 			foreach($plugins as $plugin) {

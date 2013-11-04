@@ -40,16 +40,12 @@
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
+				<field name="ajax_functions" type="filelist" default="" label="Custom Functions" description="Execute custom JavaScript functions." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="cache" type="hidden" value="0" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" />
 				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
 				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="Add a suffix to the module (if you need to) which will allow individual css styling" />
-			</fieldset>
-		</fields>
-		<fields name="content" label="Plugin Settings">
-			<fieldset name="basic">
-				<field name="ajax_functions" type="filelist" default="" label="Custom Functions" description="Execute custom JavaScript functions." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
 			</fieldset>
 		</fields>
 	</config>
