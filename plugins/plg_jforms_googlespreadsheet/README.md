@@ -7,6 +7,12 @@ A jForms plugin to save submitted data to a Google Spreadsheet.
 Install the plugin in Joomla, then configure & publish it in your plugin manager. 
 You will need to enter your Google username and password.
 
+### Important information for GMail Users
+If you are using GMail (rather than Google Apps) you will get blocked on the first call of the API. 
+To fix this, open a jForms module in your module manager after setting up the plugin. You will see an error. 
+Now head over to [gmail.com] and sign in, you should see a notification about access to your account. 
+Authorise access and you're good to go ;)
+
 Open the jForms module which you wish to use in your module manager, click on the options tab and scroll to the bottom. 
 You will see a new set of options called "Google Spreadsheets" with the following options:
 
@@ -24,4 +30,4 @@ Select which spreasheet to save to form data to.
 
 ## Roadmap
 
-- Allow selecting mailing list based on form field (list, radio or checkboxes)
+- Use OAuth for connecting to Google account
