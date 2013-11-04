@@ -27,4 +27,6 @@ Subscribe user to a YMLP mailing list.
 
 - Drag & drop XML form creator
 - Full documentation
+- Mailchimp plugin
+- Sign-up plugin
 - Developer wiki
