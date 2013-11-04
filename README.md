@@ -33,5 +33,5 @@ Subscribe user to a YMLP mailing list.
 
 ## Author
 
-**Adam Bouqdib**
+**Adam Bouqdib**  
 <http://abemedia.co.uk>
