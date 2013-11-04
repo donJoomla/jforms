@@ -48,16 +48,8 @@ Select this option to submit the form without reloading the page.
 Execute custom JavaScript functions. To use your own functions upload them to `/modules/mod_jforms/functions/`.
 
 
-## Requirements
-
-- PHP 5
-- Joomla 2.5+
 
 ## Roadmap
 
-Planned features in no particular order.
-
-- Language file for multilingual support
-- Drag & drop XML form creator
-- Full documentation
+- Form creator
 - Developer wiki

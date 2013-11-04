@@ -13,6 +13,7 @@
 		<filename plugin="ymlp">ymlp.php</filename>
 		<filename>helper.php</filename>
 		<filename>config.xml</filename>
+		<filename>index.html</filename>
 		<folder>elements</folder>
 	</files>
     <config>

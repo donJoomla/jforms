@@ -11,7 +11,10 @@
 	<description>A jForms plugin to save submitted data in a Google Spreadsheet.</description>
 	<files>
 		<filename plugin="googlespreadsheet">googlespreadsheet.php</filename>
+		<filename>config.xml</filename>
 		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>elements</folder>
 		<folder>Zend</folder>
 	</files>
     <config>
