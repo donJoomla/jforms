@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fields name="plugins">
+	<fields name="params">
 		<fieldset name="ymlp" label="Your Mailing List Provider" addfieldpath="/plugins/jforms/ymlp/elements">
 			<field name="use_ymlp" type="radio" class="btn-group" default="0" label="Save to mailing list" description="Subscribe user to a YMLP mailing list">
 				<option value="0">No</option>
