@@ -2,6 +2,10 @@ jForms YMLP Plugin
 ======
 A jForms plugin to save submitted data to a YMLP mailing list.
 
+## Important
+
+Needs jForms Plugin Framework (plg_system_jforms) to work.
+
 ## Instructions
 
 Install the plugin in Joomla, then configure & publish it in your plugin manager. 
