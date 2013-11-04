@@ -8,6 +8,7 @@ A jForms plugin to save submitted data to a Google Spreadsheet.
 
 - PHP 5
 - Joomla 2.5+
+- jForms Module
 - jForms Plugin Framework (plg_system_jforms)
 
 ## Roadmap
