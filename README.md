@@ -10,7 +10,6 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 ## Instructions
 - [Getting Started](https://github.com/donJoomla/jforms/wiki/Getting-Started)
-- [Sending Custom Emails](https://github.com/github.com/donJoomla/jforms/wiki/Sending-Custom-Emails)
 - [Creating a custom form](https://github.com/github.com/donJoomla/jforms/wiki/Creating-a-custom-form)
 
 
