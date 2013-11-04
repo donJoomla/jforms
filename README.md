@@ -55,7 +55,7 @@ Execute custom JavaScript functions. To use your own functions upload them to `/
 
 ## Roadmap
 
-Planned features in no perticular order.
+Planned features in no particular order.
 
 - Language file for multilingual support
 - Drag & drop XML form creator
