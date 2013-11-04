@@ -7,20 +7,20 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 
 ## Instructions
-- [Getting Started](/donJoomla/jforms/wiki/Getting-Started)
-- [Sending Custom Emails](/github.com/donJoomla/jforms/wiki/Sending-Custom-Emails)
-- [Creating a custom form](/github.com/donJoomla/jforms/wiki/Creating-a-custom-form)
+- [Getting Started](https://github.com/donJoomla/jforms/wiki/Getting-Started)
+- [Sending Custom Emails](https://github.com/github.com/donJoomla/jforms/wiki/Sending-Custom-Emails)
+- [Creating a custom form](https://github.com/github.com/donJoomla/jforms/wiki/Creating-a-custom-form)
 
 
 ## Available Plugins
 
 **Google Spreadsheet Export**  
 Save submitted data to a Google Spreadsheet.  
-[Google Spreadsheet Instructions](/donJoomla/jforms/wiki/Google-Spreadsheets-Plugin-Instructions)
+[Google Spreadsheet Instructions](https://github.com/donJoomla/jforms/wiki/Google-Spreadsheets-Plugin-Instructions)
 
 **Your Mailing List Provider**  
 Subscribe user to a YMLP mailing list.  
-[YMLP Instructions](/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
+[YMLP Instructions](https://github.com/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
 
 
 ## Roadmap
@@ -38,4 +38,4 @@ Subscribe user to a YMLP mailing list.
 
 ## Copyright and license
 
-Copyright 2013 Adam Bouqdib under [GNU GPL 2](/donJoomla/jforms/blob/master/LICENSE)
+Copyright 2013 Adam Bouqdib under [GNU GPL 2](https://github.com/donJoomla/jforms/blob/master/LICENSE)
