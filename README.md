@@ -16,11 +16,11 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 **Google Spreadsheet Export**  
 Save submitted data to a Google Spreadsheet.  
-[Instructions](https://github.com/donJoomla/jforms/wiki/Google-Spreadsheets-Plugin-Instructions)
+[Google Spreadsheet Instructions](https://github.com/donJoomla/jforms/wiki/Google-Spreadsheets-Plugin-Instructions)
 
 **Your Mailing List Provider**  
-Subscribe user to a YMLP mailing list.
-[Instructions](https://github.com/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
+Subscribe user to a YMLP mailing list.  
+[YMLP Instructions](https://github.com/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
 
 
 ## Roadmap
