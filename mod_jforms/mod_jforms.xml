@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="2.5" method="upgrade">
+	<name>jForms Module</name>
+	<author>Adam Bouqdib</author>
+	<creationDate>May 2013</creationDate>
+	<authorEmail>adam@abemedia.co.uk</authorEmail>
+	<authorUrl>www.abemedia.co.uk</authorUrl>
+	<version>1.6.1</version>
+	<description>A slick AJAX contact form using jForms.</description>
+	<files>
+		<filename module="mod_jforms">mod_jforms.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>csv</folder>
+		<folder>elements</folder>
+		<folder>forms</folder>
+		<folder>functions</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="fields_xml" type="filelist" default="" label="Form" directory="modules/mod_jforms/forms" filter = "\.xml$" exclude="" stripext="true" required="true" hide_default="true" hide_none="true" description="Select a form to display." />
+				<field name="introtext" type="editor" default="" label="Introduction text" description="If you want to, this is where some text will appear (at the top of the form)." size="55" filter="safehtml" buttons="false" />
+				<field name="thanks" type="textarea" default='Sent successfully. We will be in touch soon.' label="Thank you Message" description="Enter your thank you message which will be displayed after a successful email has been sent." filter="string" buttons="false" />
+				<field name="submit_label" type="text" default="Submit" label="Submit Button Text" description="Enter the text you would like to appear on the submit button" size="20" />
+			</fieldset>
+			<fieldset name="email_settings" label="Email Settings">
+				<field name="send_email" type="radio" class="btn-group" default="1" label="Send email" description="Send form data to a specified email address">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="receipt_email" type="text" default="" label="Email destination" description="Please enter a valid email address where the form will be sent to." />
+				<field name="subject" type="text" default="" label="Email subject" description="Please enter a subject for the email that will be sent." />	
+				<field name="email_body" type="editor" default="&lt;p&gt; The following user has entered a message:  &lt;/p&gt; &lt;p&gt;{fields}&lt;/p&gt;" label="Email text" description="Enter some text for your body." size="55" filter="safehtml" buttons="false" />
+			</fieldset>
+			<fieldset name="ajax_settings" label="Ajax Settings">
+				<field name="use_ajax" type="radio" class="btn-group" default="1" label="Use Ajax to send form" description="Use Ajax to send the form (no page reload).">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="cache" type="hidden" value="0" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" />
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="Add a suffix to the module (if you need to) which will allow individual css styling" />
+			</fieldset>
+		</fields>
+		<fields name="content" label="Plugin Settings">
+			<fieldset name="basic">
+				<field name="ajax_functions" type="filelist" default="" label="Custom Functions" description="Execute custom JavaScript functions." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

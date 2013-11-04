@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset addfieldpath="/modules/mod_jforms/elements">
+			<field name="name" type="text" default="" label="Name" description="" required="true" />
+			<field name="email" type="email" default="" label="Email" description="" required="true" validate="email" />
+			<field name="message" type="textarea" default="" label="Message" description="" required="true" rows="10" />
+		</fieldset>
+	</fields>
+</form>

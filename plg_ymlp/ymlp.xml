@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="jforms" method="upgrade">
+	<name>YMLP jForms Plugin</name>
+	<author>Adam Bouqdib</author>
+	<creationDate>14 October 2013</creationDate>
+	<copyright>Copyright (c) 2006 - 2013 Adam Bouqdib. All rights reserved.</copyright>
+	<authorEmail>adam@abemedia.co.uk</authorEmail>
+	<authorUrl>www.abemedia.co.uk</authorUrl>
+	<version>1.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>A jForms plugin to save submitted data to a YMLP mailing list.</description>
+	<files>
+		<filename plugin="ymlp">ymlp.php</filename>
+		<filename>helper.php</filename>
+		<filename>config.xml</filename>
+		<folder>elements</folder>
+	</files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="api_key" type="text" default="" label="YMPL API Key" description="Please enter your YMPL API Key" required="true" />	
+				<field name="username" type="text" default="" label="YMPL Username" description="Please enter your YMPL Username" required="true" />	
+			</fieldset>
+		</fields>
+    </config>
+</extension>

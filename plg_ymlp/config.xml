@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="plugins">
+		<fieldset name="ymlp" label="Your Mailing List Provider" addfieldpath="/plugins/jforms/ymlp/elements">
+			<field name="use_ymlp" type="radio" class="btn-group" default="0" label="Save to mailing list" description="Subscribe user to a YMLP mailing list">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</field>
+			<field name="overrule_blacklist" type="radio" class="btn-group" default="0" label="Overrule blacklist" description="Subscribe users even if they previously unsubscribed or if the email address previously was removed by bounce back handling">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</field>
+			<field name="ymlp" type="Ymlplist" default="" label="Select mailing list" description="Please select a mailing list to add the user to." />
+		</fieldset>
+	</fields>
+</form>

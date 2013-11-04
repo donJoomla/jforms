@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset addfieldpath="/modules/mod_jforms/elements">
+			<field name="to" type="email" default="" label="Recipient" description="" required="true" validate="email" />
+			<field name="name" type="text" default="" label="Your name" description="" />
+			<field name="email" type="email" default="" label="Your Email" description="" validate="email" />
+			<field name="subject" type="pagetitle" default="" label="Subject" description="" hidden="true" />
+			<field name="link" type="currenturl" default="" label="Link" description="" hidden="true" />
+		</fieldset>
+	</fields>
+</form>
