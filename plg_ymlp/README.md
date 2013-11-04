@@ -22,3 +22,7 @@ Choose which mailing list to subscribe the user to.
 Map your form fields to the fields in YMLP. Use the field names you specified your form XML for example `{email}`. 
 Notice how the name is in squiggly brackets, this tells the plugin to use the data from the form. 
 To pass a static value to, for example, track where they signed up from, just enter standard text eg. `Website Contact Form`.
+
+## Roadmap
+
+- Select mailing list based on form field (list or checkboxes)
