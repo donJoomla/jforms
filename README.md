@@ -49,6 +49,11 @@ Execute custom JavaScript functions. To use your own functions upload them to `/
 
 
 
+## Requirements
+
+- PHP 5
+- Joomla 2.5+
+
 ## Roadmap
 
 Planned features in no perticular order.
