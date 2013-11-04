@@ -1,3 +1,3 @@
-jForms Framework
+jForms Plugin Framework
 ======
 Necessary for using jForms plugins.
