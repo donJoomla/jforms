@@ -7,10 +7,7 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 ## Getting Started
 - [Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/pkg_jforms_full_v1.6.1_j2.5_j3.1.zip)
-
-## Instructions
-- [Getting Started](https://github.com/donJoomla/jforms/wiki/Getting-Started)
-- [Creating a custom form](https://github.com/github.com/donJoomla/jforms/wiki/Creating-a-custom-form)
+- [Read Instructions](http://donjoomla.com/docs/jforms)
 
 
 ## Available Plugins
