@@ -7,18 +7,18 @@ It is easily extensible with plugins to manipulate or send the data anywhere you
 
 ## Getting Started
 - [Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/pkg_jforms_full_v1.6.1_j2.5_j3.1.zip)
-- [Read Instructions](http://donjoomla.com/docs/jforms)
+- [Read Documentation](http://donjoomla.com/docs/jforms)
 
 
 ## Available Plugins
 
 **Google Spreadsheet Export**  
 Save submitted data to a Google Spreadsheet.  
-[Google Spreadsheet Instructions](https://github.com/donJoomla/jforms/wiki/Google-Spreadsheets-Plugin-Instructions)
+[Google Spreadsheet Instructions](http://donjoomla.com/docs/jforms#GoogleSpreadsheetsPlugin)
 
 **Your Mailing List Provider**  
 Subscribe user to a YMLP mailing list.  
-[YMLP Instructions](https://github.com/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
+[YMLP Instructions](http://donjoomla.com/docs/jforms#YMLPPluginInstructions)
 
 
 ## Roadmap
