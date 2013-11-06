@@ -4,7 +4,7 @@ A jForms plugin to save submitted data to a Google Spreadsheet.
 
 [Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/plg_jforms_googlespreadsheet_v1.2.zip)
 
-[View Documentation](http://donjoomla.com/docs/jforms#GoogleSpreadsheetsPlugin)
+[Read Documentation](http://donjoomla.com/docs/jforms#GoogleSpreadsheetsPlugin)
 
 ## Requirements
 
