@@ -5,6 +5,8 @@ donJoomla jForms Module is a small but powerful extension which builds AJAX form
 It can be used as a simple AJAX contact form, but it is so much more!  
 It is easily extensible with plugins to manipulate or send the data anywhere you want so it could also be used as a sign-up form, questionnaire or any form of data collection you can imagine.
 
+Visit <http://donjoomla.com/extensions/jforms> for more information.
+
 ## Getting Started
 - [Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/pkg_jforms_full_v1.6.1_j2.5_j3.1.zip)
 - [Read Documentation](http://donjoomla.com/docs/jforms)
