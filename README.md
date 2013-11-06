@@ -14,13 +14,11 @@ For more information visit <http://donjoomla.com/extensions/jforms>.
 
 ## Available Plugins
 
-**Google Spreadsheet Export**  
-Save submitted data to a Google Spreadsheet.  
-[Google Spreadsheet Instructions](http://donjoomla.com/docs/jforms#GoogleSpreadsheetsPlugin)
+[**Google Spreadsheet Export**](http://donjoomla.com/extensions/jforms/google-spreadsheets)  
+Save submitted data to a Google Spreadsheet.
 
-**Your Mailing List Provider**  
-Subscribe user to a YMLP mailing list.  
-[YMLP Instructions](http://donjoomla.com/docs/jforms#YMLPPluginInstructions)
+[**Your Mailing List Provider**](http://donjoomla.com/extensions/jforms/your-mailing-list-provider)   
+Subscribe user to a YMLP mailing list.
 
 
 ## Roadmap
