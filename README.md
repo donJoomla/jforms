@@ -21,14 +21,6 @@ Save submitted data to a Google Spreadsheet.
 Subscribe user to a YMLP mailing list.
 
 
-## Roadmap
-
-- Drag & drop XML form creator
-- Full documentation
-- Mailchimp plugin
-- Sign-up plugin
-- Developer wiki
-
 ## Author
 
 **Adam Bouqdib**  
