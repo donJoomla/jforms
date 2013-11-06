@@ -2,7 +2,9 @@ jForms YMLP Plugin
 ======
 A jForms plugin to save submitted data to a YMLP mailing list.
 
-[View Instructions](https://github.com/donJoomla/jforms/wiki/YMLP-Plugin-Instructions)
+[View Instructions](http://donjoomla.com/docs/jforms#YMLPPluginInstructions)
+
+[Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/plg_jforms_ymlp_v1.1.zip)
 
 ## Requirements
 
