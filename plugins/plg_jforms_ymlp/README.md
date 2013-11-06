@@ -4,7 +4,7 @@ A jForms plugin to save submitted data to a YMLP mailing list.
 
 [Download Latest Release](https://github.com/donJoomla/jforms/releases/download/1.6.1/plg_jforms_ymlp_v1.1.zip)
 
-[View Documentation](http://donjoomla.com/docs/jforms#YMLPPluginInstructions)
+[Read Documentation](http://donjoomla.com/docs/jforms#YMLPPluginInstructions)
 
 ## Requirements
 
