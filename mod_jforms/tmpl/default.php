@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
   <?php endif; ?>
   <?php endforeach; ?>
   <div class="form-actions">
-    <button type="submit" class="btn btn-inverse btn-block submit_button" data-loading-text="Loading..."><?php echo $submit_label; ?></button>
+    <button type="submit" class="btn btn-inverse submit_button" data-loading-text="Loading..."><?php echo $submit_label; ?></button>
   </div>
   <?php endif; ?>
 </form>
