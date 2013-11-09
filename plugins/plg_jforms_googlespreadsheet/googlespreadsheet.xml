@@ -17,9 +17,6 @@
 		<folder>elements</folder>
 		<folder>Zend</folder>
 	</files>
-    <updateservers>
-        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/googlespreadsheet.xml</server>
-    </updateservers>
     <config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -28,4 +25,7 @@
 			</fieldset>
 		</fields>
     </config>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_jforms_googlespreadsheet.xml</server>
+    </updateservers>
 </extension>
