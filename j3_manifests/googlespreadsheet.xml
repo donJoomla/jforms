@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="jforms" method="upgrade">
+	<name>Google Spreadsheet Export</name>
+	<author>Adam Bouqdib</author>
+	<creationDate>May 19th, 2013</creationDate>
+	<copyright>Copyright (c) 2006 - 2013 Adam Bouqdib. All rights reserved.</copyright>
+	<authorEmail>adam@abemedia.co.uk</authorEmail>
+	<authorUrl>www.abemedia.co.uk</authorUrl>
+	<version>1.2.1</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>A jForms plugin to save submitted data in a Google Spreadsheet.</description>
+	<files>
+		<filename plugin="googlespreadsheet">googlespreadsheet.php</filename>
+		<filename>config.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>elements</folder>
+		<folder>Zend</folder>
+	</files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="google_user" type="email" default="you@gmail.com" label="Google username" description="Please enter your Google username" required="true" />	
+				<field name="google_pass" type="password" default="" label="Google password" description="Please enter your Google password" required="true" />	
+			</fieldset>
+		</fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_jforms_googlespreadsheet.xml</server>
+    </updateservers>
+</extension>
