@@ -6,7 +6,7 @@
 	<copyright>Copyright (c) 2006 - 2013 Adam Bouqdib. All rights reserved.</copyright>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.1</version>
+	<version>1.1.1</version>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<description>A jForms plugin to save submitted data to a YMLP mailing list.</description>
 	<files>
@@ -16,6 +16,9 @@
 		<filename>index.html</filename>
 		<folder>elements</folder>
 	</files>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/ymlp.xml</server>
+    </updateservers>
     <config>
 		<fields name="params">
 			<fieldset name="basic">

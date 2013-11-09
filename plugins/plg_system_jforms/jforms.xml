@@ -7,10 +7,13 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.1</version>
+	<version>1.1.1</version>
 	<description>Necessary for using jForms plugins.</description>
 	<files>
 		<filename plugin="jforms">jforms.php</filename>
 		<filename>index.html</filename>
 	</files>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/framework.xml</server>
+    </updateservers>
 </extension>

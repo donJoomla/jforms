@@ -5,7 +5,7 @@
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.1</version>
+	<version>1.6.2</version>
 	<description>A slick AJAX contact form using jForms.</description>
 	<files>
 		<filename module="mod_jforms">mod_jforms.php</filename>
@@ -17,6 +17,9 @@
 		<folder>js</folder>
 		<folder>tmpl</folder>
 	</files>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/module.xml</server>
+    </updateservers>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">

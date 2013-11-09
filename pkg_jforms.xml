@@ -6,7 +6,7 @@
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.1</version>
+	<version>1.6.2</version>
 	<description>A slick AJAX contact form using jForms.</description>
     <files>
         <folder type="module" id="mod_jforms" client="site">mod_jforms</folder>
@@ -15,6 +15,6 @@
         <folder type="plugin" id="ymlp" group="jforms">plugins/plg_jforms_ymlp</folder>
     </files>
     <updateservers>
-        <server type="extension" priority="1" name="jForms Update"><![CDATA[http://donjoomla.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=1&dummy=extension.xml]]></server>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/package.xml</server>
     </updateservers>
 </extension>
