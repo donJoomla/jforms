@@ -46,13 +46,13 @@ class modJformsHelper
 			$formdata 	= new stdClass();
 			
 			//pre-populate form with user data
-			if($params->get('populate_form', 1) {
+			if($this->params->get('populate_form', true)) {
 				$user = JFactory::getUser();
 				if(!$user->guest) {
 					$profile = JUserHelper::getProfile($user->id)->profile;
 					
 					//split name into first name & last name
-					if($params->get('split_name', 0) {
+					if($this->params->get('split_name', false)) {
 						$namearray = explode(' ', $user->name);
 						if(count($namearray)>1) {
 							$lastname = array_pop($namearray);
@@ -138,7 +138,7 @@ class modJformsHelper
 		}
 		
 		//split name into first name & last name
-		if($params->get('split_name', 0) {
+		if($this->params->get('split_name', false)) {
 			if($post['name']) {
 				$namearray = explode(' ', $post['name']);
 				$data['lastname'] = new stdClass();
