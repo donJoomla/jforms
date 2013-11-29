@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version     1.5.0
+ * @version     1.6.2
  * @package     mod_jforms
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -46,29 +46,33 @@ class modJformsHelper
 			$formdata 	= new stdClass();
 			
 			//pre-populate form with user data
-			$user = JFactory::getUser();
-			if(!$user->guest) {
-				$profile = JUserHelper::getProfile($user->id)->profile;
-				
-				//split name into first name & last name
-				$namearray = explode(' ', $user->name);
-				if(count($namearray)>1) {
-					$lastname = array_pop($namearray);
-					$firstname = implode(' ', $namearray);
-				} else {
-					$firstname = $user->name;
-					$lastname = null;
+			if($params->get('populate_form', 1) {
+				$user = JFactory::getUser();
+				if(!$user->guest) {
+					$profile = JUserHelper::getProfile($user->id)->profile;
+					
+					//split name into first name & last name
+					if($params->get('split_name', 0) {
+						$namearray = explode(' ', $user->name);
+						if(count($namearray)>1) {
+							$lastname = array_pop($namearray);
+							$firstname = implode(' ', $namearray);
+						} else {
+							$firstname = $user->name;
+							$lastname = null;
+						}
+						if(!$profile['firstname']) $profile['firstname'] = $firstname;
+						if(!$profile['lastname']) $profile['lastname'] = $lastname;
+					}
+					
+					if(!$this->data->get('name')) $this->data->set('name', $user->name);
+					if(!$this->data->get('email')) $this->data->set('email', $user->email);
+					foreach($profile as $key=>$data) {
+						if(!$this->data->get($key)) $this->data->set($key, $data);
+					}
 				}
-				if(!$profile['firstname']) $profile['firstname'] = $firstname;
-				if(!$profile['lastname']) $profile['lastname'] = $lastname;
-				
-				if(!$this->data->get('name')) $this->data->set('name', $user->name);
-				if(!$this->data->get('email')) $this->data->set('email', $user->email);
-				foreach($profile as $key=>$data) {
-					if(!$this->data->get($key)) $this->data->set($key, $data);
-				}
+				$form->bind($this->data);
 			}
-			$form->bind($this->data);
 			
 			//add neccesary form fields
 			$element = new SimpleXMLElement('<field name="jFormAction" type="hidden" default="1" />');
@@ -134,18 +138,20 @@ class modJformsHelper
 		}
 		
 		//split name into first name & last name
-		if($post['name']) {
-			$namearray = explode(' ', $post['name']);
-			$data['lastname'] = new stdClass();
-			$data['lastname']->title = 'First Name';
-			$data['firstname'] = new stdClass();
-			$data['firstname']->title = 'Last Name';
-			if(count($namearray)>1) {
-				$data['lastname']->value = array_pop($namearray);
-				$data['firstname']->value = implode(' ', $namearray);
-			} else {
-				$data['lastname']->value = null;
-				$data['firstname']->value = $post['name'];
+		if($params->get('split_name', 0) {
+			if($post['name']) {
+				$namearray = explode(' ', $post['name']);
+				$data['lastname'] = new stdClass();
+				$data['lastname']->title = 'First Name';
+				$data['firstname'] = new stdClass();
+				$data['firstname']->title = 'Last Name';
+				if(count($namearray)>1) {
+					$data['lastname']->value = array_pop($namearray);
+					$data['firstname']->value = implode(' ', $namearray);
+				} else {
+					$data['lastname']->value = null;
+					$data['firstname']->value = $post['name'];
+				}
 			}
 		}
 		

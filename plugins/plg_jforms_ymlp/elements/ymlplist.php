@@ -45,9 +45,10 @@ class JFormFieldYmlplist extends JFormField
 		$dispatcher =& JDispatcher::getInstance();
 		$groups = $dispatcher->trigger('GroupsGetList');
 		$fields = $dispatcher->trigger('FieldsGetList');
-	//	die(print_r($ymlp[0]));
-		if(!$groups) return '<div class="alert alert-error">Before using YMPL, please publish &amp configure the <a href="index.php?option=com_plugins&amp;view=plugins&amp;filter_folder=jforms" target="_blank">jForms YMPL plugin</a>.</div>
-';
+		//die(print_r($groups[0]) . print_r($fields[0]));
+		if(!is_array($groups[0]) || !is_array($fields[0])) return '<div class="alert alert-error">Before using YMPL, please publish &amp configure the <a href="index.php?option=com_plugins&amp;view=plugins&amp;filter_folder=jforms" target="_blank">jForms YMPL plugin</a>.</div>';
+		if(isset($groups[0]['Code'])) return '<div class="alert alert-error">'.$groups[0]['Output'].'</div>';
+		if(isset($fields[0]['Code'])) return '<div class="alert alert-error">'.$fields[0]['Output'].'</div>';
 		$mailinglist[] = JHtml::_('select.option', '', 'Please select a Mailing List', 'value', 'text');
 		foreach($groups[0] as $option) {
 			$mailinglist[] = JHtml::_('select.option', $option['ID'], JText::alt(trim($option['GroupName']), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text');
@@ -66,7 +67,8 @@ class JFormFieldYmlplist extends JFormField
 			else {
 				$id = $this->id.'_field'.$field['ID'];
 				$name = $this->name.'[fields][field'.$field['ID'].']';
-				$value = $this->value['fields']['field'.$field['ID']];
+				$value = (is_array($this->value['fields'])?$this->value['fields']:json_decode($this->value['fields']));
+				$value = $value['field'.$field['ID']];
 			}
 			$html[] = '<div class="control-group"><div class="control-label"><label for="'.$id.'">'.$field['FieldName'].':</label></div><div class="controls"><input type="text" id="'.$id.'" name="'.$name.'" value="'.$value.'" /></div></div>';
 		}

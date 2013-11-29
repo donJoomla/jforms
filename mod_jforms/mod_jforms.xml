@@ -5,7 +5,7 @@
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.2</version>
+	<version>1.6.3</version>
 	<description>A slick AJAX contact form using jForms.</description>
 	<files>
 		<filename module="mod_jforms">mod_jforms.php</filename>
@@ -34,12 +34,20 @@
 				<field name="subject" type="text" default="" label="Email subject" description="Please enter a subject for the email that will be sent." />	
 				<field name="email_body" type="editor" default="&lt;p&gt; The following user has entered a message:  &lt;/p&gt; &lt;p&gt;{fields}&lt;/p&gt;" label="Email text" description="Enter some text for your body." size="55" filter="safehtml" buttons="false" />
 			</fieldset>
-			<fieldset name="ajax_settings" label="Ajax Settings">
+			<fieldset name="form_settings" label="Form Settings">
 				<field name="use_ajax" type="radio" class="btn-group" default="1" label="Use Ajax to send form" description="Use Ajax to send the form (no page reload).">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
-				<field name="ajax_functions" type="filelist" default="" label="Custom Functions" description="Execute custom JavaScript functions." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
+				<field name="ajax_functions" type="filelist" default="" label="Custom JS Functions" description="Execute custom JavaScript functions. To use your own upload them to /modules/mod_jforms/functions/." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
+				<field name="populate_form" type="radio" class="btn-group" default="1" label="Populate with user data" description="Pre-populate form with logged in users' profile data.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="split_name" type="radio" class="btn-group" default="0" label="Split name to first and last." description="Split name into first and last name. Useful if you have a form with first and last name fields and want it to pre-populate from logged in users' name, or if you have a form with just one name field but you want to store the data with split names.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="cache" type="hidden" value="0" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" />

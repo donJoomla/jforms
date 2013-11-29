@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @version     1.6.2
+ * @package     mod_jforms
+ * @copyright   Copyright (C) 2013. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      Adam Bouqdib <adam@abemedia.co.uk> - http://www.abemedia.co.uk
+ */
+
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
