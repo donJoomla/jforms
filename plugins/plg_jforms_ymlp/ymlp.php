@@ -31,10 +31,33 @@ class plgJformsYmlp extends JPlugin
 		return $ymlp->FieldsGetList();
 	}
  
+	function OnJFormsAdminPrepareForm( $form, $data )
+	{
+		JPluginHelper::importPlugin('jforms', 'ymlp');
+		$dispatcher =& JDispatcher::getInstance();
+		$fields = $dispatcher->trigger('FieldsGetList');
+		$xml = array();
+		$xml[] = '<field type="spacer" label="&lt;legend&gt;'.JText::_('PLG_JFORMS_YMLP_MAP_FIELDS_Label').'&lt;/legend&gt; '.JText::_('PLG_JFORMS_YMLP_MAP_FIELDS_DESC').'" />';
+		foreach($fields[0] as $field) {
+			if($field['ID']==0) {
+				$name = 'ymlp_email';
+				$value = '{email}';
+			}
+			else {
+				$name = 'ymlp_field'.$field['ID'].'';
+				$value = '';
+			}
+			$xml[] = '<field name="'.$name.'" type="text" default="'.$value.'" label="'.$field['FieldName'].'" description="" />';
+		}
+		$xml[] = '<field name="ymlp_fieldcount" type="hidden" default="'.count($xml).'" />';
+        return new SimpleXMLElement('<fields name="params"><fieldset name="ymlp">'.implode($xml).'</fieldset></fields>');
+	}
+ 
 	function OnJFormsSubmit( $params, $data )
 	{
 		if($params->get('use_ymlp', '')) {
 			$ymlp = $this->ympl();
+			$fieldcount		= $params->get('ymlp_fieldcount');
 			$settings 		= $params->get('ymlp');
 			$group_id		= $settings->group;
 			$blacklist 		= $params->get('overrule_blacklist', '0');
@@ -43,9 +66,9 @@ class plgJformsYmlp extends JPlugin
 				$search[] = '{'.$key.'}';
 				$replace[] = $row->value;
 			}
-			$email = str_replace($search, $replace, $settings->email);
-			foreach ($settings->fields as $key=>$field) {
-				if($field) $fields[$key] = str_replace($search, $replace, $field);
+			$email = str_replace($search, $replace, $params->get('ymlp_email', '{email}'));
+			for ($i = 1; $i<=$fieldcount; $i++) {
+				if($params->get('ymlp_field'.$i)) $fields['Field'.$i] = str_replace($search, $replace, $params->get('ymlp_field'.$i));
 			}
 
 			$ymlp->ContactsAdd($email, $fields, $group_id, $blacklist);

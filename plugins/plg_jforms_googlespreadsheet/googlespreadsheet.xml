@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="jforms" method="upgrade">
-	<name>Google Spreadsheet Export</name>
+	<name>PLG_JFORMS_GOOGLESPREADSHEET</name>
 	<author>Adam Bouqdib</author>
 	<creationDate>May 19th, 2013</creationDate>
 	<copyright>Copyright (c) 2006 - 2013 Adam Bouqdib. All rights reserved.</copyright>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.2.1</version>
+	<version>1.2.3</version>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-	<description>A jForms plugin to save submitted data in a Google Spreadsheet.</description>
+	<description>PLG_JFORMS_GOOGLESPREADSHEET_XML_DESCRIPTION</description>
 	<files>
 		<filename plugin="googlespreadsheet">googlespreadsheet.php</filename>
 		<filename>config.xml</filename>
@@ -17,11 +17,15 @@
 		<folder>elements</folder>
 		<folder>Zend</folder>
 	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_jforms_googlespreadsheet.ini</language>
+		<language tag="en-GB">language/en-GB.plg_jforms_googlespreadsheet.sys.ini</language>
+	</languages>
     <config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="google_user" type="email" default="you@gmail.com" label="Google username" description="Please enter your Google username" required="true" />	
-				<field name="google_pass" type="password" default="" label="Google password" description="Please enter your Google password" required="true" />	
+				<field name="google_user" type="email" default="you@gmail.com" label="PLG_JFORMS_GOOGLESPREADSHEET_USERNAME_LABEL" description="PLG_JFORMS_GOOGLESPREADSHEET_USERNAME_DESC" required="true" />	
+				<field name="google_pass" type="password" default="" label="PLG_JFORMS_GOOGLESPREADSHEET_PASSWORD_LABEL" description="PLG_JFORMS_GOOGLESPREADSHEET_PASSWORD_DESC" required="true" />	
 			</fieldset>
 		</fields>
     </config>

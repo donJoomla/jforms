@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" version="2.5" method="upgrade">
-	<name>jForms Module</name>
+	<name>MOD_JFORMS</name>
 	<author>Adam Bouqdib</author>
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.3</version>
-	<description>A slick AJAX contact form using jForms.</description>
+	<version>1.6.4</version>
+	<description>MOD_JFORMS_DESC</description>
 	<files>
 		<filename module="mod_jforms">mod_jforms.php</filename>
 		<filename>helper.php</filename>
@@ -17,34 +17,37 @@
 		<folder>js</folder>
 		<folder>tmpl</folder>
 	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_jforms.ini</language>
+	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="fields_xml" type="filelist" default="" label="Form" directory="modules/mod_jforms/forms" filter = "\.xml$" exclude="" stripext="true" required="true" hide_default="true" hide_none="true" description="Select a form to display." />
-				<field name="introtext" type="editor" default="" label="Introduction text" description="If you want to, this is where some text will appear (at the top of the form)." size="55" filter="safehtml" buttons="false" />
-				<field name="thanks" type="textarea" default='Sent successfully. We will be in touch soon.' label="Thank you Message" description="Enter your thank you message which will be displayed after a successful email has been sent." filter="string" buttons="false" />
-				<field name="submit_label" type="text" default="Submit" label="Submit Button Text" description="Enter the text you would like to appear on the submit button" size="20" />
+				<field name="fields_xml" type="filelist" default="" label="MOD_JFORMS_FORM_LABEL" directory="modules/mod_jforms/forms" filter = "\.xml$" exclude="" stripext="true" required="true" hide_default="true" hide_none="true" description="MOD_JFORMS_FORM_DESC" />
+				<field name="introtext" type="editor" default="" label="MOD_JFORMS_INTROTEXT_LABEL" description="MOD_JFORMS_INTROTEXT_DESC" size="55" filter="safehtml" buttons="false" />
+				<field name="thanks" type="textarea" default="MOD_JFORMS_THANKS_DEFAULT" label="MOD_JFORMS_THANKS_LABEL" description="MOD_JFORMS_THANKS_DESC" filter="string" buttons="false" />
+				<field name="submit_label" type="text" default="MOD_JFORMS_SUBMIT_LABEL_DEFAULT" label="MOD_JFORMS_SUBMIT_LABEL_LABEL" description="MOD_JFORMS_SUBMIT_LABEL_DESC" size="20" />
 			</fieldset>
-			<fieldset name="email_settings" label="Email Settings">
-				<field name="send_email" type="radio" class="btn-group" default="1" label="Send email" description="Send form data to a specified email address">
+			<fieldset name="email_settings" label="MOD_JFORMS_EMAIL_SETTINGS">
+				<field name="send_email" type="radio" class="btn-group" default="1" label="MOD_JFORMS_SEND_EMAIL_LABEL" description="MOD_JFORMS_SEND_EMAIL_DESC">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
-				<field name="receipt_email" type="text" default="" label="Email destination" description="Please enter a valid email address where the form will be sent to." />
-				<field name="subject" type="text" default="" label="Email subject" description="Please enter a subject for the email that will be sent." />	
-				<field name="email_body" type="editor" default="&lt;p&gt; The following user has entered a message:  &lt;/p&gt; &lt;p&gt;{fields}&lt;/p&gt;" label="Email text" description="Enter some text for your body." size="55" filter="safehtml" buttons="false" />
+				<field name="receipt_email" type="text" default="" label="MOD_JFORMS_EMAIL_DESTINATION_LABEL" description="MOD_JFORMS_EMAIL_DESTINATION_DESC" />
+				<field name="subject" type="text" default="" label="MOD_JFORMS_EMAIL_SUBJECT_LABEL" description="MOD_JFORMS_EMAIL_SUBJECT_DESC" />	
+				<field name="email_body" type="editor" default="MOD_JFORMS_EMAIL_BODY_DEFAULT" label="MOD_JFORMS_EMAIL_BODY_LABEL" description="MOD_JFORMS_EMAIL_BODY_DESC" size="55" filter="safehtml" buttons="false" />
 			</fieldset>
-			<fieldset name="form_settings" label="Form Settings">
-				<field name="use_ajax" type="radio" class="btn-group" default="1" label="Use Ajax to send form" description="Use Ajax to send the form (no page reload).">
+			<fieldset name="form_settings" label="MOD_JFORMS_FORM_SETTINGS">
+				<field name="use_ajax" type="radio" class="btn-group" default="1" label="MOD_JFORMS_USE_AJAX_LABEL" description="MOD_JFORMS_USE_AJAX_DESC">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
-				<field name="ajax_functions" type="filelist" default="" label="Custom JS Functions" description="Execute custom JavaScript functions. To use your own upload them to /modules/mod_jforms/functions/." directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
-				<field name="populate_form" type="radio" class="btn-group" default="1" label="Populate with user data" description="Pre-populate form with logged in users' profile data.">
+				<field name="ajax_functions" type="filelist" default="" label="MOD_JFORMS_CUSTOM_FUNCTIONS_LABEL" description="MOD_JFORMS_CUSTOM_FUNCTIONS_DESC" directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
+				<field name="populate_form" type="radio" class="btn-group" default="1" label="MOD_JFORMS_POPULATE_FORM_LABEL" description="MOD_JFORMS_POPULATE_FORM_DESC">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
-				<field name="split_name" type="radio" class="btn-group" default="0" label="Split name to first and last." description="Split name into first and last name. Useful if you have a form with first and last name fields and want it to pre-populate from logged in users' name, or if you have a form with just one name field but you want to store the data with split names.">
+				<field name="split_name" type="radio" class="btn-group" default="0" label="MOD_JFORMS_SPLIT_NAME_LABEL" description="MOD_JFORMS_SPLIT_NAME_DESC">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
@@ -52,7 +55,7 @@
 			<fieldset name="advanced">
 				<field name="cache" type="hidden" value="0" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" />
 				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
-				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="Add a suffix to the module (if you need to) which will allow individual css styling" />
+				<field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
 			</fieldset>
 		</fields>
 	</config>

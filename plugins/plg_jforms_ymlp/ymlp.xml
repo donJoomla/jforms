@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="jforms" method="upgrade">
-	<name>YMLP jForms Plugin</name>
+	<name>PLG_JFORMS_YMLP</name>
 	<author>Adam Bouqdib</author>
 	<creationDate>14 October 2013</creationDate>
 	<copyright>Copyright (c) 2006 - 2013 Adam Bouqdib. All rights reserved.</copyright>
-	<authorEmail>adam@abemedia.co.uk</authorEmail>
-	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.1.1</version>
+	<authorEmail>info@donjoomla.com</authorEmail>
+	<authorUrl>www.donjoomla.com</authorUrl>
+	<version>1.1.3</version>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-	<description>A jForms plugin to save submitted data to a YMLP mailing list.</description>
+	<description>PLG_JFORMS_YMLP_XML_DESCRIPTION</description>
 	<files>
 		<filename plugin="ymlp">ymlp.php</filename>
 		<filename>helper.php</filename>
@@ -16,11 +16,15 @@
 		<filename>index.html</filename>
 		<folder>elements</folder>
 	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_jforms_ymlp.ini</language>
+		<language tag="en-GB">language/en-GB.plg_jforms_ymlp.sys.ini</language>
+	</languages>
     <config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="api_key" type="text" default="" label="YMPL API Key" description="Please enter your YMPL API Key" required="true" />	
-				<field name="username" type="text" default="" label="YMPL Username" description="Please enter your YMPL Username" required="true" />	
+				<field name="api_key" type="text" default="" label="PLG_JFORMS_YMLP_API_KEY_LABEL" description="PLG_JFORMS_YMLP_API_KEY_DESC" required="true" />	
+				<field name="username" type="text" default="" label="PLG_JFORMS_YMLP_USERNAME_LABEL" description="PLG_JFORMS_YMLP_USERNAME_DESC" required="true" />	
 			</fieldset>
 		</fields>
     </config>

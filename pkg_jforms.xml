@@ -6,7 +6,7 @@
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.2</version>
+	<version>1.6.4</version>
 	<description>A slick AJAX contact form using jForms.</description>
     <files>
         <folder type="module" id="mod_jforms" client="site">mod_jforms</folder>

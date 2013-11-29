@@ -2,11 +2,11 @@
 <form>
 	<fields name="params">
 		<fieldset name="google" label="Google Spreadsheets" addfieldpath="/plugins/jforms/googlespreadsheet/elements">
-			<field name="use_google" type="radio" class="btn-group" default="0" label="Save to Spreadsheet" description="Send form data to a Google Spreadsheet">
+			<field name="use_google" type="radio" class="btn-group" default="0" label="PLG_JFORMS_GOOGLESPREADSHEET_SAVE_FORM_LABEL" description="PLG_JFORMS_GOOGLESPREADSHEET_SAVE_FORM_DESC">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
 			</field>
-			<field name="google_spreadsheet" type="Spreadsheet" default="" label="Spreadsheet Name" description="Please enter your Google Spreadsheet name" />
+			<field name="google_spreadsheet" type="Spreadsheet" default="" label="PLG_JFORMS_GOOGLESPREADSHEET_SPREADSHEET_LABEL" description="PLG_JFORMS_GOOGLESPREADSHEET_SPREADSHEET_DESC" />
 		</fieldset>
 	</fields>
 </form>

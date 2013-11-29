@@ -1,10 +1,10 @@
 <?php
 /**
- * @package     Joomla.Platform
- * @subpackage  Form
- *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
+ * @version     1.1.2
+ * @package     plg_jforms_ymlp
+ * @copyright   Copyright (C) 2013. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      Adam Bouqdib <info@donjoomla.com> - http://donjoomla.com
  */
 
 defined('JPATH_PLATFORM') or die;
@@ -44,36 +44,13 @@ class JFormFieldYmlplist extends JFormField
 		JPluginHelper::importPlugin('jforms', 'ymlp');
 		$dispatcher =& JDispatcher::getInstance();
 		$groups = $dispatcher->trigger('GroupsGetList');
-		$fields = $dispatcher->trigger('FieldsGetList');
-		//die(print_r($groups[0]) . print_r($fields[0]));
-		if(!is_array($groups[0]) || !is_array($fields[0])) return '<div class="alert alert-error">Before using YMPL, please publish &amp configure the <a href="index.php?option=com_plugins&amp;view=plugins&amp;filter_folder=jforms" target="_blank">jForms YMPL plugin</a>.</div>';
+		if(!is_array($groups[0])) return '<div class="alert alert-error">'.JText::_('PLG_JFORMS_YMLP_ERROR_PUBLISH_CONFIGURE').'</div>';
 		if(isset($groups[0]['Code'])) return '<div class="alert alert-error">'.$groups[0]['Output'].'</div>';
-		if(isset($fields[0]['Code'])) return '<div class="alert alert-error">'.$fields[0]['Output'].'</div>';
-		$mailinglist[] = JHtml::_('select.option', '', 'Please select a Mailing List', 'value', 'text');
+		$mailinglist[] = JHtml::_('select.option', '', JText::_('PLG_JFORMS_YMLP_SELECT_LIST_DESC'), 'value', 'text');
 		foreach($groups[0] as $option) {
 			$mailinglist[] = JHtml::_('select.option', $option['ID'], JText::alt(trim($option['GroupName']), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text');
 		}
-		$html[] = JHtml::_('select.genericlist', $mailinglist, $this->name.'[group]', trim($attr), 'value', 'text', $this->value[group], $this->id.'_group');
-		
-		$html[]='</div></div>'; // close form control group to start on a new row
-		
-		$html[] = '<div class="control-group"><legend>Map YMLP Fields</legend>Map your form fields to the user fields eg. "{email}". To pass a static value to, for example, track where they signed up from, just enter standard text eg. "Website Visiter".</div>';
-		foreach($fields[0] as $field) {
-			if($field['ID']==0) {
-				$id = $this->id.'_email';
-				$name = $this->name.'[email]';
-				$value = (empty($this->value['email'])?'{email}':$this->value['email']);
-			}
-			else {
-				$id = $this->id.'_field'.$field['ID'];
-				$name = $this->name.'[fields][field'.$field['ID'].']';
-				$value = (is_array($this->value['fields'])?$this->value['fields']:json_decode($this->value['fields']));
-				$value = $value['field'.$field['ID']];
-			}
-			$html[] = '<div class="control-group"><div class="control-label"><label for="'.$id.'">'.$field['FieldName'].':</label></div><div class="controls"><input type="text" id="'.$id.'" name="'.$name.'" value="'.$value.'" /></div></div>';
-		}
-		
-		$html[]='<div><div>'; // open new divs as joomla wants to close them
+		$html[] = JHtml::_('select.genericlist', $mailinglist, $this->name, trim($attr), 'value', 'text', $this->value, $this->id);
 		
 		return implode($html);
 	}

@@ -21,7 +21,6 @@ class modJformsHelper
 	public $params;
 	public $data;
 	
-	
 	/**
 	 * Method to get the form and load JavaScript.
 	 *
@@ -99,7 +98,10 @@ class modJformsHelper
 			return ($fields);
 
 		} 
-		else die('Form not found');
+		else {
+			$app->enqueueMessage(JText::_('MOD_JFORMS_ERROR_FORM_NOT_FOUND'), "error");
+			return false;
+		}
 	}
 	
 	/**
@@ -123,11 +125,11 @@ class modJformsHelper
 		$input 	= $app->input;
 		$post 	= $this->data->toArray();
 		if(!$form->validate($post)) {
-			$app->enqueueMessage("Please check your entries and try again.", "error");
+			$app->enqueueMessage(JText::_('MOD_JFORMS_ERROR_TRY_AGAIN'), "error");
 			return false;
 		}
 		if(!$post[JSession::getFormToken()]) {
-			$app->enqueueMessage("Your session has expired. Refresh the page and try again.", "error");
+			$app->enqueueMessage(JText::_('MOD_JFORMS_ERROR_SESSION_EXPIRED'), "error");
 			return false;
 		}
 		
@@ -207,7 +209,7 @@ class modJformsHelper
 		$mailer->setBody(str_replace($search, $replace, $body));
 		
 		if ($mailer->Send() !== true) {
-			$app->enqueueMessage("Error. Please try again.", "error");
+			$app->enqueueMessage(JText::_('MOD_JFORMS_ERROR_TRY_AGAIN'), "error");
 			return false;
 		}
 		else {

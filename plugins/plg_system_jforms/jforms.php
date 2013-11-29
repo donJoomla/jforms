@@ -42,7 +42,18 @@ class plgSystemJForms extends JPlugin
 			
 			foreach($plugins as $plugin) {
 				$xmlPath = JPATH_ROOT.'/plugins/jforms/'.$plugin.'/config.xml';
-				if(JFile::exists($xmlPath)) $form->loadFile($xmlPath);
+				if(JFile::exists($xmlPath)) {
+					JFactory::getLanguage()->load('plg_jforms_'.$plugin);
+					$form->loadFile($xmlPath);
+					JPluginHelper::importPlugin('jforms', $plugin);
+				}
+			}
+			
+			//run jforms plugins
+			$dispatcher =& JDispatcher::getInstance();
+			$results = $dispatcher->trigger('OnJFormsAdminPrepareForm', $form, $data);
+			foreach($results as $result) {
+				$form->setField($result);
 			}
 		}
 		return true;

@@ -2,15 +2,15 @@
 <form>
 	<fields name="params">
 		<fieldset name="ymlp" label="Your Mailing List Provider" addfieldpath="/plugins/jforms/ymlp/elements">
-			<field name="use_ymlp" type="radio" class="btn-group" default="0" label="Save to mailing list" description="Subscribe user to a YMLP mailing list">
+			<field name="use_ymlp" type="radio" class="btn-group" default="0" label="PLG_JFORMS_YMLP_SAVE_TO_LIST_LABEL" description="PLG_JFORMS_YMLP_SAVE_TO_LIST_DESC">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
 			</field>
-			<field name="overrule_blacklist" type="radio" class="btn-group" default="0" label="Overrule blacklist" description="Subscribe users even if they previously unsubscribed or if the email address previously was removed by bounce back handling">
+			<field name="overrule_blacklist" type="radio" class="btn-group" default="0" label="PLG_JFORMS_YMLP_OVERRRULE_BLACKLIST_LABEL" description="PLG_JFORMS_YMLP_OVERRRULE_BLACKLIST_DESC">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
 			</field>
-			<field name="ymlp" type="Ymlplist" default="" label="Select mailing list" description="Please select a mailing list to add the user to." />
+			<field name="ymlp" type="Ymlplist" default="" label="PLG_JFORMS_YMLP_SELECT_LIST_LABEL" description="PLG_JFORMS_YMLP_SELECT_LIST_DESC" />
 		</fieldset>
 	</fields>
 </form>

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="system" method="upgrade">
-	<name>System - jForms Framework</name>
+	<name>PLG_SYSTEM_JFORMS</name>
 	<author>Adam Bouqdib</author>
 	<creationDate>October 2013</creationDate>
 	<copyright>Copyright (C)2013. All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.1.1</version>
-	<description>Necessary for using jForms plugins.</description>
+	<version>1.1.3</version>
+	<description>PLG_SYSTEM_JFORMS_DESC</description>
 	<files>
 		<filename plugin="jforms">jforms.php</filename>
 		<filename>index.html</filename>
 	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_jforms.sys.ini</language>
+	</languages>
     <updateservers>
         <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_system_jforms.xml</server>
     </updateservers>
