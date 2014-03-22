@@ -1,4 +1,4 @@
-jForms Module
+Joomla AJAX Forms Module
 ======
 
 donJoomla jForms Module is a small but powerful extension which builds AJAX forms from XML using Joomla's inbuilt JForm class. 
