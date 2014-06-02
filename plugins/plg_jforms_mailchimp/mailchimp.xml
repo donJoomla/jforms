@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="jforms" method="upgrade">
+	<name>PLG_JFORMS_MAILCHIMP</name>
+	<author>Adam Bouqdib</author>
+	<creationDate>01 June 2014</creationDate>
+	<copyright>Copyright (c) 2014 Adam Bouqdib. All rights reserved.</copyright>
+	<authorEmail>info@donjoomla.com</authorEmail>
+	<authorUrl>www.donjoomla.com</authorUrl>
+	<version>1.1</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_JFORMS_MAILCHIMP_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="mailchimp">mailchimp.php</filename>
+		<filename>helper.php</filename>
+		<filename>config.xml</filename>
+		<filename>index.html</filename>
+		<folder>elements</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_jforms_mailchimp.ini</language>
+	</languages>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="api_key" type="text" default="" label="PLG_JFORMS_MAILCHIMP_API_KEY_LABEL" description="PLG_JFORMS_MAILCHIMP_API_KEY_DESC" required="true" />
+			</fieldset>
+		</fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_jforms_mailchimp.xml</server>
+    </updateservers>
+</extension>
