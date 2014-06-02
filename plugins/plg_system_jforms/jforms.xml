@@ -14,7 +14,7 @@
 		<filename>index.html</filename>
 	</files>
 	<languages>
-		<language tag="en-GB">en-GB.plg_system_jforms.sys.ini</language>
+		<language tag="en-GB">en-GB.plg_system_jforms.ini</language>
 	</languages>
     <updateservers>
         <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_system_jforms.xml</server>

@@ -18,7 +18,6 @@
 	</files>
 	<languages>
 		<language tag="en-GB">language/en-GB.plg_jforms_ymlp.ini</language>
-		<language tag="en-GB">language/en-GB.plg_jforms_ymlp.sys.ini</language>
 	</languages>
     <config>
 		<fields name="params">
