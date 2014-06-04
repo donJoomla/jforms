@@ -52,6 +52,9 @@ class JFormFieldMailchimplist extends JFormField
 		}
 		$html[] = JHtml::_('select.genericlist', $mailinglist, $this->name, trim($attr), 'value', 'text', $this->value, $this->id);
 		
+		$fields = $dispatcher->trigger('getFields');
+		$html[] = '<input type="hidden" value="'.implode(',', $fields[0]).'" name="'.substr($this->name, 0, -1).'_fields]" />';
+		
 		return implode($html);
 	}
 }
