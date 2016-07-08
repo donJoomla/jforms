@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="params">
+		<fieldset name="db" label="Database">
+			<field name="table" type="sql" label="PLG_JFORMS_DB_TABLE_LABEL" description="PLG_JFORMS_DB_TABLE_DESC" query="SELECT TABLE_NAME, TABLE_COMMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA != 'INFORMATION_SCHEMA'" key_field="TABLE_NAME" />
+		</fieldset>
+	</fields>
+</form>

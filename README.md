@@ -1,8 +1,8 @@
 Joomla AJAX Forms Module
 ======
 
-donJoomla jForms Module is a small but powerful extension which builds AJAX forms from XML using Joomla's inbuilt JForm class. 
-It can be used as a simple AJAX contact form, but it is so much more!  
+donJoomla jForms Module is a small but powerful extension which builds AJAX forms from XML using Joomla's inbuilt JForm class.
+It can be used as a simple AJAX contact form, but it is so much more!
 It is easily extensible with plugins to manipulate or send the data anywhere you want so it could also be used as a sign-up form, questionnaire or any form of data collection you can imagine.
 
 For more information visit <http://donjoomla.com/extensions/jforms>.
@@ -14,16 +14,19 @@ For more information visit <http://donjoomla.com/extensions/jforms>.
 
 ## Available Plugins
 
-[**Google Spreadsheet Export**](http://donjoomla.com/extensions/jforms/google-spreadsheets)  
+[**Google Spreadsheet Export**](http://donjoomla.com/extensions/jforms/google-spreadsheets)
 Save submitted data to a Google Spreadsheet.
 
-[**Your Mailing List Provider**](http://donjoomla.com/extensions/jforms/your-mailing-list-provider)   
+[**Your Mailing List Provider**](http://donjoomla.com/extensions/jforms/your-mailing-list-provider)
 Subscribe user to a YMLP mailing list.
+
+[**Database**](http://donjoomla.com/extensions/jforms/db)
+Insert form data into a selected table of the Joomla DB.
 
 
 ## Author
 
-**Adam Bouqdib**  
+**Adam Bouqdib**
 <http://abemedia.co.uk>
 
 ## Copyright and license

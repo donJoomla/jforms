@@ -7,15 +7,15 @@ class YMLP
     var $ApiUsername;
     var $ApiKey;
     var $Secure = false;
-	var $Curl = true;
-	var $CurlAvailable = true;
+    var $Curl = true;
+    var $CurlAvailable = true;
 
-	function __construct($ApiKey=null,$ApiUsername=null,$secure=false) {
-		$this->ApiKey = $ApiKey;
-		$this->ApiUsername = $ApiUsername;
-		$this->Secure = $secure;
-		$this->CurlAvailable = function_exists( 'curl_init' ) && function_exists( 'curl_setopt' );
-	}
+    function __construct($ApiKey=null,$ApiUsername=null,$secure=false) {
+        $this->ApiKey = $ApiKey;
+        $this->ApiUsername = $ApiUsername;
+        $this->Secure = $secure;
+        $this->CurlAvailable = function_exists( 'curl_init' ) && function_exists( 'curl_setopt' );
+    }
 
     function useSecure($val) {
         if ($val===true){
@@ -27,79 +27,79 @@ class YMLP
 
     function doCall($method = '',$params = array()) {
 
-    	$params["key"] = $this->ApiKey;
-    	$params["username"] = $this->ApiUsername;
-    	$params["output"] = "PHP";
+        $params["key"] = $this->ApiKey;
+        $params["username"] = $this->ApiUsername;
+        $params["output"] = "PHP";
         $this->ErrorMessage = "";
 
-		foreach ( $params as $k => $v )
-			$postdata .= '&' . $k . '=' .rawurlencode(utf8_encode($v));
+        foreach ( $params as $k => $v )
+            $postdata .= '&' . $k . '=' .rawurlencode(utf8_encode($v));
 
-		if ( $this->Curl && $this->CurlAvailable )  {
-			$ch = curl_init();
-			curl_setopt( $ch, CURLOPT_POST, 1 );
-			curl_setopt( $ch, CURLOPT_POSTFIELDS, $postdata );
-			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-			if ($this->Secure){
-				curl_setopt( $ch, CURLOPT_URL, "https://" .$this->ApiUrl . $method );
-			} else {
-				curl_setopt( $ch, CURLOPT_URL, "http://" .$this->ApiUrl . $method );
-			}			
-			$response = curl_exec( $ch );
-			if(curl_errno($ch)) {
-				$this->ErrorMessage = curl_error($ch);
-			    return false;
-				}
-			}
-		else {
-			$this->ApiUrl = parse_url( "http://" .$this->ApiUrl . $method);
-	        $payload = "POST " . $this->ApiUrl["path"] . "?" . $this->ApiUrl["query"] . " HTTP/1.0\r\n";
-			$payload .= "Host: " . $this->ApiUrl["host"] . "\r\n";
-			$payload .= "User-Agent: YMLP_API\r\n";
-			$payload .= "Content-type: application/x-www-form-urlencoded\r\n";
-			$payload .= "Content-length: " . strlen($postdata) . "\r\n";
-			$payload .= "Connection: close \r\n\r\n";
-			$payload .= $postdata;
+        if ( $this->Curl && $this->CurlAvailable )  {
+            $ch = curl_init();
+            curl_setopt( $ch, CURLOPT_POST, 1 );
+            curl_setopt( $ch, CURLOPT_POSTFIELDS, $postdata );
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+            if ($this->Secure){
+                curl_setopt( $ch, CURLOPT_URL, "https://" .$this->ApiUrl . $method );
+            } else {
+                curl_setopt( $ch, CURLOPT_URL, "http://" .$this->ApiUrl . $method );
+            }
+            $response = curl_exec( $ch );
+            if(curl_errno($ch)) {
+                $this->ErrorMessage = curl_error($ch);
+                return false;
+                }
+            }
+        else {
+            $this->ApiUrl = parse_url( "http://" .$this->ApiUrl . $method);
+            $payload = "POST " . $this->ApiUrl["path"] . "?" . $this->ApiUrl["query"] . " HTTP/1.0\r\n";
+            $payload .= "Host: " . $this->ApiUrl["host"] . "\r\n";
+            $payload .= "User-Agent: YMLP_API\r\n";
+            $payload .= "Content-type: application/x-www-form-urlencoded\r\n";
+            $payload .= "Content-length: " . strlen($postdata) . "\r\n";
+            $payload .= "Connection: close \r\n\r\n";
+            $payload .= $postdata;
 
-			ob_start();
-			if ($this->Secure){
-				$sock = fsockopen("ssl://".$this->ApiUrl["host"], 443, $errno, $errstr);
-			} else {
-				$sock = fsockopen($this->ApiUrl["host"], 80, $errno, $errstr);
-			}
+            ob_start();
+            if ($this->Secure){
+                $sock = fsockopen("ssl://".$this->ApiUrl["host"], 443, $errno, $errstr);
+            } else {
+                $sock = fsockopen($this->ApiUrl["host"], 80, $errno, $errstr);
+            }
 
-			if(!$sock) {
-				$this->ErrorMessage = "ERROR $errno: $errstr";
-				ob_end_clean();
-				return false;
-			}
-        
-			$response = "";
-			fwrite($sock, $payload);
-			while(!feof($sock)) {
-				$response .= fread($sock,8192);
-			}
-			fclose($sock);
-			ob_end_clean();
+            if(!$sock) {
+                $this->ErrorMessage = "ERROR $errno: $errstr";
+                ob_end_clean();
+                return false;
+            }
 
-			list($throw, $response) = explode("\r\n\r\n", $response, 2);
-		}
+            $response = "";
+            fwrite($sock, $payload);
+            while(!feof($sock)) {
+                $response .= fread($sock,8192);
+            }
+            fclose($sock);
+            ob_end_clean();
 
-		if(ini_get("magic_quotes_runtime")) $response = stripslashes($response);
+            list($throw, $response) = explode("\r\n\r\n", $response, 2);
+        }
 
-		if (strtoupper($params["output"]) == "PHP" ) {
-			$serial = unserialize($response);
-			if ($response && $serial === false) {
-				$this->ErrorMessage = "Bad Response: " . $response;
-				return false;
-				}
-			else {
-	       		$response = $serial;
-				}
-			}
-	
+        if(ini_get("magic_quotes_runtime")) $response = stripslashes($response);
+
+        if (strtoupper($params["output"]) == "PHP" ) {
+            $serial = unserialize($response);
+            if ($response && $serial === false) {
+                $this->ErrorMessage = "Bad Response: " . $response;
+                return false;
+                }
+            else {
+                   $response = $serial;
+                }
+            }
+
     return $response;
-	}
+    }
 
     function Ping() {
         return $this->doCall("Ping");
@@ -181,10 +181,10 @@ class YMLP
     function ContactsAdd($Email = '', $OtherFields = '', $GroupID = '', $OverruleUnsubscribedBounced = '') {
         $params = array();
         $params["Email"] = $Email;
-		if (!is_array($OtherFields)) $OtherFields=array();
-		foreach ($OtherFields as $key=>$value) {
-			$params[$key] = $value;
-			}
+        if (!is_array($OtherFields)) $OtherFields=array();
+        foreach ($OtherFields as $key=>$value) {
+            $params[$key] = $value;
+            }
         $params["GroupID"] = $GroupID;
         $params["OverruleUnsubscribedBounced"] = $OverruleUnsubscribedBounced;
         return $this->doCall("Contacts.Add", $params);
@@ -284,98 +284,98 @@ class YMLP
     function ArchiveGetList($Page = '', $NumberPerPage = '', $StartDate = '', $StopDate = '', $Sorting = '', $ShowTestMessages = '') {
         $params = array();
         $params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["StartDate"] = $StartDate;
-		$params["StopDate"] = $StopDate;
-		$params["Sorting"] = $Sorting;
-		$params["ShowTestMessages"] = $ShowTestMessages;
-		return $this->doCall("Archive.GetList", $params);
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["StartDate"] = $StartDate;
+        $params["StopDate"] = $StopDate;
+        $params["Sorting"] = $Sorting;
+        $params["ShowTestMessages"] = $ShowTestMessages;
+        return $this->doCall("Archive.GetList", $params);
     }
 
     function ArchiveGetSummary($NewsletterID = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		return $this->doCall("Archive.GetSummary", $params);
+        return $this->doCall("Archive.GetSummary", $params);
     }
-	
+
     function ArchiveGetContent($NewsletterID = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		return $this->doCall("Archive.GetContent", $params);
+        return $this->doCall("Archive.GetContent", $params);
     }
-	
+
     function ArchiveGetRecipients($NewsletterID = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetRecipients", $params);
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetRecipients", $params);
     }
-	
+
     function ArchiveGetDelivered($NewsletterID = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetDelivered", $params);
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetDelivered", $params);
     }
-	
+
     function ArchiveGetBounces($NewsletterID = '', $ShowHardBounces = '', $ShowSoftBounces = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["ShowHardBounces"] = $ShowHardBounces;
-		$params["ShowSoftBounces"] = $ShowSoftBounces;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetBounces", $params);
+        $params["ShowHardBounces"] = $ShowHardBounces;
+        $params["ShowSoftBounces"] = $ShowSoftBounces;
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetBounces", $params);
     }
-	
+
     function ArchiveGetOpens($NewsletterID = '', $UniqueOpens = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["UniqueOpens"] = $UniqueOpens;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetOpens", $params);
+        $params["UniqueOpens"] = $UniqueOpens;
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetOpens", $params);
     }
-	
+
     function ArchiveGetUnopened($NewsletterID = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetUnopened", $params);
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetUnopened", $params);
     }
-	
+
     function ArchiveGetTrackedLinks($NewsletterID = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		return $this->doCall("Archive.GetTrackedLinks", $params);
+        return $this->doCall("Archive.GetTrackedLinks", $params);
     }
-	
+
     function ArchiveGetClicks($NewsletterID = '', $LinkID = '', $UniqueClicks = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
         $params["LinkID"] = $LinkID;
-		$params["UniqueClicks"] = $UniqueClicks;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetClicks", $params);
+        $params["UniqueClicks"] = $UniqueClicks;
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetClicks", $params);
     }
-	
+
     function ArchiveGetForwards($NewsletterID = '', $Page = '', $NumberPerPage = '', $Sorting = '') {
         $params = array();
         $params["NewsletterID"] = $NewsletterID;
-		$params["Page"] = $Page;
-		$params["NumberPerPage"] = $NumberPerPage;
-		$params["Sorting"] = $Sorting;
-		return $this->doCall("Archive.GetForwards", $params);
+        $params["Page"] = $Page;
+        $params["NumberPerPage"] = $NumberPerPage;
+        $params["Sorting"] = $Sorting;
+        return $this->doCall("Archive.GetForwards", $params);
     }
     //------------------------------------------------------------
     // ARCHIVE [end]
@@ -385,41 +385,41 @@ class YMLP
     // NEWSLETTER [begin]
     //------------------------------------------------------------
     function NewsletterGetFroms() {
-		return $this->doCall("Newsletter.GetFroms");
+        return $this->doCall("Newsletter.GetFroms");
     }
 
     function NewsletterAddFrom($FromEmail = '', $FromName = '') {
         $params = array();
         $params["FromEmail"] = $FromEmail;
-		$params["FromName"] = $FromName;
-		return $this->doCall("Newsletter.AddFrom", $params);
+        $params["FromName"] = $FromName;
+        return $this->doCall("Newsletter.AddFrom", $params);
     }
-	
+
     function NewsletterDeleteFrom($FromID = '') {
         $params = array();
         $params["FromID"] = $FromID;
-		return $this->doCall("Newsletter.DeleteFrom", $params);
+        return $this->doCall("Newsletter.DeleteFrom", $params);
     }
-	
+
     function NewsletterSend($Subject = '', $HTML = '', $Text = '', $DeliveryTime = '',
-							$FromID = '', $TrackOpens = '', $TrackClicks = '', $TestMessage = '',
-							$GroupID = '', $FilterID = '', $CombineFilters = '') {
+                            $FromID = '', $TrackOpens = '', $TrackClicks = '', $TestMessage = '',
+                            $GroupID = '', $FilterID = '', $CombineFilters = '') {
         $params = array();
         $params["Subject"] = $Subject;
-		$params["HTML"] = $HTML;
-		$params["Text"] = $Text;
-		$params["DeliveryTime"] = $DeliveryTime;
-		$params["FromID"] = $FromID;
-		$params["TrackOpens"] = $TrackOpens;
-		$params["TrackClicks"] = $TrackClicks;
-		$params["TestMessage"] = $TestMessage;
-		$params["GroupID"] = $GroupID;
-		$params["FilterID"] = $FilterID;
-		$params["CombineFilters"] = $CombineFilters;
-		return $this->doCall("Newsletter.Send", $params);
+        $params["HTML"] = $HTML;
+        $params["Text"] = $Text;
+        $params["DeliveryTime"] = $DeliveryTime;
+        $params["FromID"] = $FromID;
+        $params["TrackOpens"] = $TrackOpens;
+        $params["TrackClicks"] = $TrackClicks;
+        $params["TestMessage"] = $TestMessage;
+        $params["GroupID"] = $GroupID;
+        $params["FilterID"] = $FilterID;
+        $params["CombineFilters"] = $CombineFilters;
+        return $this->doCall("Newsletter.Send", $params);
     }
     //------------------------------------------------------------
     // NEWSLETTER [end]
     //------------------------------------------------------------
-	
+
 }

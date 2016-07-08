@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="jforms" method="upgrade">
+  <name>PLG_JFORMS_DB</name>
+  <author>Adam Bouqdib</author>
+  <creationDate>05 July 2016</creationDate>
+  <copyright>Copyright (c) 2006 - 2016 Adam Bouqdib. All rights reserved.</copyright>
+  <authorEmail>adam@abemedia.co.uk</authorEmail>
+  <authorUrl>www.abemedia.co.uk</authorUrl>
+  <version>1.0.0</version>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <description>PLG_JFORMS_DB_XML_DESCRIPTION</description>
+  <files>
+    <filename plugin="db">db.php</filename>
+    <filename>config.xml</filename>
+    <filename>index.html</filename>
+  </files>
+  <languages>
+    <language tag="en-GB">language/en-GB.plg_jforms_db.ini</language>
+  </languages>
+  <updateservers>
+    <server type="extension" priority="1" name="jForms Update">http://update.donjoomla.com/jforms/plg_jforms_db.xml</server>
+  </updateservers>
+</extension>

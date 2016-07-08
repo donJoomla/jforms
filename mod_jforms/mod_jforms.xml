@@ -5,7 +5,7 @@
 	<creationDate>May 2013</creationDate>
 	<authorEmail>adam@abemedia.co.uk</authorEmail>
 	<authorUrl>www.abemedia.co.uk</authorUrl>
-	<version>1.6.5</version>
+	<version>1.6.6</version>
 	<description>MOD_JFORMS_DESC</description>
 	<files>
 		<filename module="mod_jforms">mod_jforms.php</filename>
@@ -34,7 +34,7 @@
 					<option value="1">Yes</option>
 				</field>
 				<field name="receipt_email" type="text" default="" label="MOD_JFORMS_EMAIL_DESTINATION_LABEL" description="MOD_JFORMS_EMAIL_DESTINATION_DESC" />
-				<field name="subject" type="text" default="" label="MOD_JFORMS_EMAIL_SUBJECT_LABEL" description="MOD_JFORMS_EMAIL_SUBJECT_DESC" />	
+				<field name="subject" type="text" default="" label="MOD_JFORMS_EMAIL_SUBJECT_LABEL" description="MOD_JFORMS_EMAIL_SUBJECT_DESC" />
 				<field name="email_body" type="editor" default="MOD_JFORMS_EMAIL_BODY_DEFAULT" label="MOD_JFORMS_EMAIL_BODY_LABEL" description="MOD_JFORMS_EMAIL_BODY_DESC" size="55" filter="safehtml" buttons="false" />
 			</fieldset>
 			<fieldset name="form_settings" label="MOD_JFORMS_FORM_SETTINGS">
@@ -43,6 +43,9 @@
 					<option value="1">Yes</option>
 				</field>
 				<field name="ajax_functions" type="filelist" default="" label="MOD_JFORMS_CUSTOM_FUNCTIONS_LABEL" description="MOD_JFORMS_CUSTOM_FUNCTIONS_DESC" directory="/modules/mod_jforms/functions" filter="\.js$" exclude="" stripext="true" multiple="true" hide_default="true" hide_none="true" />
+				<field name="redirect" type="menuitem" label="MOD_JFORMS_REDIRECT_LABEL" description="MOD_JFORMS_REDIRECT_DESC">
+				  <option value="">MOD_JFORMS_REDIRECT_DESC</option>
+				</field>
 				<field name="populate_form" type="radio" class="btn-group" default="1" label="MOD_JFORMS_POPULATE_FORM_LABEL" description="MOD_JFORMS_POPULATE_FORM_DESC">
 					<option value="0">No</option>
 					<option value="1">Yes</option>
